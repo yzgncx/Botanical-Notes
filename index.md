@@ -1,0 +1,1 @@
+You've reached the landing page for my botanical field notes (if I did this right).  I will continue to update these pages as I explore.  The goal of this site is to provide a simple and accurate -- if massively incomplete -- key for the identification plant species in the California Floristic Province and nearby areas.
