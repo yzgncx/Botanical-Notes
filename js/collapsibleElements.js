@@ -1,5 +1,3 @@
- console.log("Hello world!"); 
-
 var coll = document.getElementsByClassName("collapsible");
 var i;
 
