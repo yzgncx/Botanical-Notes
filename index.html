@@ -1,5 +1,35 @@
 <!doctype html>
 
+<script>
+  function includeHTML() {
+    var z, i, elmnt, file, xhttp;
+    /*loop through a collection of all HTML elements:*/
+    z = document.getElementsByTagName("*");
+    for (i = 0; i < z.length; i++) {
+      elmnt = z[i];
+      /*search for elements with a certain atrribute:*/
+      file = elmnt.getAttribute("w3-include-html");
+      if (file) {
+        /*make an HTTP request using the attribute value as the file name:*/
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4) {
+            if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+            if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+            /*remove the attribute, and call this function once more:*/
+            elmnt.removeAttribute("w3-include-html");
+            includeHTML();
+          }
+        }      
+        xhttp.open("GET", file, true);
+        xhttp.send();
+        /*exit the function:*/
+        return;
+      }
+    }
+  };
+</script>
+
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -20,6 +50,33 @@
   <p>
     With the understanding that closely related species will typically share important morphological similarities, plants in this guide are organized into their established taxonomic clades. Underpinning this design choice is the hope that I'll provide reasonable descriptions of the relevant morphological similarities for each clade, allowing a user to work from the top of the taxonomic hierarchy down to the species level by identifying the distinguishing features of a given specimen. 
   </p>  
+
+  <h2>Using this guide</h2>
+
+  <div w3-include-html="indices/orders.html"></div> 
+  <script>
+  includeHTML();
+  </script>
+
 </body>
-</html>
+
+  <script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+  
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.maxHeight){
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    });
+  }
+  </script>
+
+  
+
 
