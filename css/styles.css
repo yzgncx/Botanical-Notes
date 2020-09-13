@@ -24,3 +24,14 @@
   overflow: hidden;
   transition: max-height 0.2s ease-out;
 }
+
+.boxed {
+  border: 1px solid #333;
+  background-color: #eee;
+  padding-left: 1em;
+  padding-bottom: 1em;
+} 
+
+hr.soft {
+  border: 1px solid #aaa;
+}
