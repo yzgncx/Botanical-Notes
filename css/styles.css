@@ -35,3 +35,9 @@
 hr.soft {
   border: 1px solid #aaa;
 }
+
+#lists
+ul.circle_bullet {list-style-type: circle;}
+ul.square_bullet {list-style-type: square;}
+ol.upper_roman {list-style-type: upper-roman;}
+ol.lower_alpha {list-style-type: lower-alpha;}
